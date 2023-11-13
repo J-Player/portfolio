@@ -1,0 +1,44 @@
+@use 'variables'
+@use 'mixins'
+
+#app
+    color: variables.$text_color
+    height: 100vh
+    max-height: 100vh
+    width: 100vw
+    position: relative
+    display: flex
+    font-size: 16pt
+    flex-direction: column
+    &::before
+        background-color: variables.$highlight_color
+        background-image: url('bg1.jpg')
+        background-size: cover
+        background-blend-mode: luminosity
+        filter: brightness(25%)
+        position: absolute
+        content: ''
+        inset: 0
+        z-index: -1
+    main
+        flex: 1 1 0
+        display: inherit
+        padding: 0 10vw
+        .container
+            flex: 1 1 0
+            h1
+                font-size: 4rem
+                color: variables.$highlight_color
+                text-shadow: 0 0 5px variables.$highlight_color
+            p
+                line-height: 1.5
+            .btn
+                display: inherit
+                cursor: pointer
+                justify-content: center
+                align-items: center
+                padding: .5rem 1rem
+                gap: 5px
+                color: inherit
+                text-decoration: none
+                border-radius: 5px

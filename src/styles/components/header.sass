@@ -1,0 +1,32 @@
+@use '../variables'
+
+header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    border-bottom: 1px solid transparent
+    font-size: 18pt
+    min-height: 10vh
+    padding: 0 10vw
+    
+    transition: all .5s
+    
+    &:hover
+        background-color: rgba(0, 0, 0, 0.5)
+        border-bottom: 1px solid variables.$highlight_color
+    .logo
+        font-family: zen dots
+        font-size: 32pt
+        cursor: default
+    ul
+        display: flex
+        gap: 2.5rem
+        list-style: none
+    a
+        color: inherit
+        text-decoration: none
+        transition: all .5s
+        &:hover
+            text-decoration: underline
+            color: variables.$highlight_color

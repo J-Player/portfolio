@@ -1,0 +1,42 @@
+@use '../variables'
+@use '../mixins'
+
+@use '../components/slider'
+
+#project
+    display: flex
+    gap: 10px
+    .project-wrapper
+        display: inherit
+        justify-content: center
+        gap: inherit
+        flex: 1 1 0
+        line-height: 1.5
+        .info-wrapper
+            display: flex
+            flex-direction: column
+            justify-content: center
+            gap: inherit
+            flex: 1 1 0
+            .tech-wrapper
+                display: flex
+                gap: inherit
+                .tag
+                    background-color: #aaa
+                    padding: 2px 5px
+                    border-radius: 5px
+            .project-links
+                display: flex
+                gap: inherit
+                .btn
+                    background-color: #ddd
+                    color: #000
+                    &:hover
+                        background-color: #eee
+                .btn.project
+                    background-color: variables.$highlight_color
+        .slider-wrapper
+            display: flex
+            justify-content: center
+            flex: 1 1 0
+            min-width: 60%

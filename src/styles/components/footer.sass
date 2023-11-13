@@ -1,0 +1,33 @@
+@use '../variables'
+
+footer
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    gap: 10px
+    
+    background-color: transparent
+    border-top: 1px solid transparent
+    color: variables.$text_color_secundary
+    min-height: 10vh
+
+    padding: 1rem 10vw
+
+    transition: all .5s
+
+    &:hover
+        background-color: rgba(0, 0, 0, .5)
+        border-top: 1px solid variables.$highlight_color
+
+    .social-wrapper
+        margin: auto
+        display: inherit
+        gap: inherit
+        a
+            color: inherit
+            text-decoration: none
+            transition: all .5s
+            &:hover
+                color: variables.$text_color
+                text-decoration: underline

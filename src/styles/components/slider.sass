@@ -1,0 +1,51 @@
+@use '../variables'
+
+.slider
+    width: 100%
+    overflow: hidden
+    border-radius: 1rem
+    border: 2px solid variables.$highlight_color
+    position: relative
+    align-self: center
+    transition: filter 1s
+    .slides
+        display: flex
+        height: 100%
+        width: 400%
+        .slide
+            width: 25%
+            transition: 1s
+            img
+                height: 100%
+                width: 100%
+        input
+            display: none
+        #slide1:checked ~ .s1
+            margin-left: 0
+        #slide2:checked ~ .s1
+            margin-left: -25%
+        #slide3:checked ~ .s1
+            margin-left: -50%
+        #slide4:checked ~ .s1
+            margin-left: -75%
+    .navigation
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: 25%
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 10px
+        transition: all .5s
+        &:hover
+            background-color: rgba(0, 0, 0, 0.5)
+        label
+            min-width: 5%
+            min-height: 2%
+            padding: 5px
+            border: 2px solid #fff
+            cursor: pointer
+            transition: .3s
+            &:hover
+                background-color: #fff
