@@ -55,13 +55,13 @@ Error generating stack: `+i.message+`
 `,Im=({className:e})=>{const t={linkedin:{href:"https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/"},github:{href:"http://github.com/j-player"}};return v.jsxs(Lm,{className:e,children:[v.jsxs("div",{className:"social-wrapper",children:[v.jsx("a",{href:t.linkedin.href,target:"_blank",rel:"noreferrer",children:v.jsx("img",{src:"icons/socials/linkedin.ico",alt:"LinkedIn"})}),v.jsx("a",{href:t.github.href,target:"_blank",rel:"noreferrer",children:v.jsx("img",{src:"icons/socials/github.ico",alt:"Github"})})]}),v.jsx("small",{children:"© Todos os direitos reservados - João Pedro"})]})};var $e=(e=>(e.PRIMARY_BACKGROUND_COLOR="#000025",e.PRIMARY_TEXT_COLOR="#ffffff",e.SECONDARY_BACKGROUND_COLOR="#ffffff",e.SECONDARY_TEXT_COLOR="#000025",e.TERNARY_BACKGROUND_COLOR="#EBEBEB",e))($e||{});const $m=Ze.header`
 	position: sticky;
 	top: 0;
-	
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 5vh 10vw;
 
-	box-shadow: 0 .3rem 4px 0 rgba(0,0,0,0.25);
+	box-shadow: 0 0.3rem 4px 0 rgba(0, 0, 0, 0.25);
 
 	background-color: ${$e.PRIMARY_BACKGROUND_COLOR};
 	color: ${$e.PRIMARY_TEXT_COLOR};
@@ -71,6 +71,11 @@ Error generating stack: `+i.message+`
 
 	h1 {
 		font-size: 4rem;
+		a {
+			font-size: inherit;
+			color: inherit;
+			text-decoration: none;
+		}
 	}
 
 	nav {
@@ -92,7 +97,7 @@ Error generating stack: `+i.message+`
 			}
 		}
 	}
-`,Dm=()=>v.jsxs($m,{children:[v.jsx("h1",{children:"JP"}),v.jsx("nav",{children:v.jsxs("ul",{children:[v.jsx("li",{children:v.jsx("a",{href:"#about",children:"Sobre"})}),v.jsx("li",{children:v.jsx("a",{href:"#skill",children:"Habilidades"})}),v.jsx("li",{children:v.jsx("a",{href:"#project",children:"Projetos"})}),v.jsx("li",{children:v.jsx("a",{href:"#contact",children:"Contatos"})})]})})]}),Ar=Ze.section`
+`,Dm=()=>v.jsxs($m,{children:[v.jsx("h1",{children:v.jsx("a",{href:"#home",children:"JP"})}),v.jsx("nav",{children:v.jsxs("ul",{children:[v.jsx("li",{children:v.jsx("a",{href:"#about",children:"Sobre"})}),v.jsx("li",{children:v.jsx("a",{href:"#skill",children:"Habilidades"})}),v.jsx("li",{children:v.jsx("a",{href:"#project",children:"Projetos"})}),v.jsx("li",{children:v.jsx("a",{href:"#contact",children:"Contatos"})})]})})]}),Ar=Ze.section`
 	background-color: ${e=>e.$backgroundColor||$e.SECONDARY_BACKGROUND_COLOR};
 	color: ${e=>e.$textColor||$e.SECONDARY_TEXT_COLOR};
 	min-height: 120vh;
@@ -132,7 +137,7 @@ Error generating stack: `+i.message+`
 			}
 		}
 	}
-`,Fm=({className:e})=>v.jsx(Ar,{id:"home",className:e,$backgroundColor:$e.PRIMARY_BACKGROUND_COLOR,$textColor:$e.PRIMARY_TEXT_COLOR,children:v.jsxs("div",{children:[v.jsx("h1",{children:"João Pedro R. Diniz"}),v.jsx("h2",{children:"Desenvolvedor Full-Stack"}),v.jsxs("div",{className:"social-media-wrapper",children:[v.jsx("button",{children:"LinkedIn"}),v.jsx("button",{children:"GitHub"})]})]})}),Um=Ze(Fm)`
+`,Fm=({className:e})=>v.jsx(Ar,{id:"home",className:e,$backgroundColor:$e.PRIMARY_BACKGROUND_COLOR,$textColor:$e.PRIMARY_TEXT_COLOR,children:v.jsxs("div",{children:[v.jsx("h1",{children:"João Pedro R. Diniz"}),v.jsx("h2",{children:"Desenvolvedor Full-Stack"}),v.jsxs("div",{className:"social-media-wrapper",children:[v.jsx("a",{href:"https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/",target:"_blank",children:v.jsx("img",{src:"icons/socials/linkedin.ico",alt:"LinkedIn icon"})}),v.jsx("a",{href:"https://github.com/J-Player",target:"_blank",children:v.jsx("img",{src:"icons/socials/github.ico",alt:"LinkedIn icon"})})]})]})}),Um=Ze(Fm)`
 	letter-spacing: 0.25rem;
 	& > div {
 		h1, h2 {
@@ -142,12 +147,12 @@ Error generating stack: `+i.message+`
 			display: flex;
 			font-size: 2.5rem;
 			gap: 1rem;
-			button {
+			a {
 				border: none;
 				outline: none;
-				padding: 5px 10px;
-				border-radius: 0.5rem;
+				color: inherit;
 				cursor: pointer;
+				text-decoration: none;
 			}
 		}
 	}
