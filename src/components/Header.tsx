@@ -4,13 +4,13 @@ import { Color } from "../styles/variables"
 const Header = styled.header`
 	position: sticky;
 	top: 0;
-	
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 5vh 10vw;
 
-	box-shadow: 0 .3rem 4px 0 rgba(0,0,0,0.25);
+	box-shadow: 0 0.3rem 4px 0 rgba(0, 0, 0, 0.25);
 
 	background-color: ${Color.PRIMARY_BACKGROUND_COLOR};
 	color: ${Color.PRIMARY_TEXT_COLOR};
@@ -20,6 +20,11 @@ const Header = styled.header`
 
 	h1 {
 		font-size: 4rem;
+		a {
+			font-size: inherit;
+			color: inherit;
+			text-decoration: none;
+		}
 	}
 
 	nav {
@@ -46,20 +51,22 @@ const Header = styled.header`
 export default () => {
 	return (
 		<Header>
-			<h1>JP</h1>
+			<h1>
+				<a href='#home'>JP</a>
+			</h1>
 			<nav>
 				<ul>
 					<li>
-						<a href={'#about'}>Sobre</a>
+						<a href={"#about"}>Sobre</a>
 					</li>
 					<li>
-						<a href={'#skill'}>Habilidades</a>
+						<a href={"#skill"}>Habilidades</a>
 					</li>
 					<li>
-						<a href={'#project'}>Projetos</a>
+						<a href={"#project"}>Projetos</a>
 					</li>
 					<li>
-						<a href={'#contact'}>Contatos</a>
+						<a href={"#contact"}>Contatos</a>
 					</li>
 				</ul>
 			</nav>

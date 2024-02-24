@@ -14,8 +14,8 @@ const Home = ({ className }: { className?: string }) => {
 				<h1>João Pedro R. Diniz</h1>
 				<h2>Desenvolvedor Full-Stack</h2>
 				<div className='social-media-wrapper'>
-					<button>LinkedIn</button>
-					<button>GitHub</button>
+					<a href="https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/" target="_blank"><img src="icons/socials/linkedin.ico" alt="LinkedIn icon" /></a>
+					<a href="https://github.com/J-Player" target="_blank"><img src="icons/socials/github.ico" alt="LinkedIn icon" /></a>
 				</div>
 			</div>
 		</Section>
@@ -32,12 +32,12 @@ const HomeStyled = styled(Home)`
 			display: flex;
 			font-size: 2.5rem;
 			gap: 1rem;
-			button {
+			a {
 				border: none;
 				outline: none;
-				padding: 5px 10px;
-				border-radius: 0.5rem;
+				color: inherit;
 				cursor: pointer;
+				text-decoration: none;
 			}
 		}
 	}
