@@ -1,47 +1,101 @@
 import styled from "styled-components"
 import { Color } from "../styles/variables"
+import { useEffect, useRef, useState } from "react"
+import breakpoints from "../styles/breakpoints"
+import { useIsVisible } from "../hooks/useIsVisibleHook"
 
 const Header = styled.header`
-	position: sticky;
+	position: fixed;
 	top: 0;
-
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 5vh 10vw;
-
-	box-shadow: 0 0.3rem 4px 0 rgba(0, 0, 0, 0.25);
+	width: 100%;
+	z-index: 10;
 
 	background-color: ${Color.PRIMARY_BACKGROUND_COLOR};
 	color: ${Color.PRIMARY_TEXT_COLOR};
-	font-size: 12rem;
+	transition: top 0.3s, background-color 0.5s;
 
-	max-height: 10vh;
+	display: grid;
+	grid-template-rows: 10vh 1fr;
+	place-items: center;
+	padding: 1rem;
 
-	h1 {
-		font-size: 4rem;
-		a {
-			font-size: inherit;
-			color: inherit;
-			text-decoration: none;
+	.logo-wrapper {
+		h1 a {
+			font-size: clamp(3.2rem, 4rem, 4.8rem);
 		}
 	}
 
-	nav {
-		display: inherit;
-		width: 50%;
+	a {
+		color: inherit;
+		text-decoration: none;
+		text-underline-offset: 0.2rem;
+	}
+
+	& > div {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.25vw 5vw;
+		gap: 5vw;
+		width: 100%;
+	}
+
+	.navbar-menu-wrapper {
+		display: flex;
+		align-items: center;
+		width: 100%;
 		ul {
+			width: inherit;
 			display: flex;
-			flex-grow: 1;
-			justify-content: space-between;
-			align-items: center;
 			list-style: none;
-			a {
-				text-decoration: none;
-				color: inherit;
-				text-underline-offset: 2px;
-				&:hover {
-					text-decoration: underline;
+			justify-content: space-evenly;
+		}
+		a {
+			text-transform: uppercase;
+			font-size: 1.6rem;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.btn-menu-mobile,
+	.navbar-menu-mobile-wrapper {
+		display: none;
+	}
+
+	.btn-menu-mobile {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		img {
+			display: block;
+			width: 100%;
+			max-height: 100%;
+		}
+	}
+
+	@media ${breakpoints.sm} {
+		.navbar-menu-wrapper {
+			display: none;
+		}
+		.btn-menu-mobile {
+			display: block;
+			width: 100%;
+			max-width: 4.8rem;
+		}
+		.navbar-menu-mobile-wrapper {
+			display: grid;
+			font-size: 4.8rem;
+			width: 100%;
+			min-height: 50vh;
+			li {
+				list-style: none;
+				a {
+					display: grid;
+					place-items: center;
+					padding: 1rem 0;
+					width: 100%;
+					height: 100%;
 				}
 			}
 		}
@@ -49,27 +103,78 @@ const Header = styled.header`
 `
 
 export default () => {
+	const [backgroundOpacity, setbackgroundOpacity] = useState(window.scrollY)
+	const [menuVisible, setMenuVisible] = useState(false)
+	const toggleMenu = () => setMenuVisible(!menuVisible)
+	const [prevScrollPos, setPrevScrollPos] = useState(0)
+	const headerRef = useRef<HTMLElement>(null)
+	const btnMenuRef = useRef<HTMLButtonElement>(null)
+	const menu = [
+		{ href: "#about", item: "Sobre" },
+		{ href: "#skill", item: "Habilidades" },
+		{ href: "#project", item: "Projetos" },
+		{ href: "#contact", item: "Contatos" },
+	]
+
+	useEffect(() => {
+		const listener = () => {
+			setbackgroundOpacity(parseFloat((window.scrollY / (window.innerHeight * 0.1)).toFixed(1)))
+		}
+		window.addEventListener("scroll", listener)
+		return () => window.removeEventListener("scroll", listener)
+	}, [])
+
+	useEffect(() => {
+		const currScrollPos = window.scrollY
+		if (prevScrollPos > currScrollPos || currScrollPos == 0) {
+			headerRef.current!.style.top = "0"
+		} else if (!menuVisible) {
+			headerRef.current!.style.top = "-20vh"
+		}
+		setPrevScrollPos(window.scrollY)
+	}, [window.scrollY])
+
 	return (
-		<Header>
-			<h1>
-				<a href='#home'>JP</a>
-			</h1>
-			<nav>
-				<ul>
-					<li>
-						<a href={"#about"}>Sobre</a>
-					</li>
-					<li>
-						<a href={"#skill"}>Habilidades</a>
-					</li>
-					<li>
-						<a href={"#project"}>Projetos</a>
-					</li>
-					<li>
-						<a href={"#contact"}>Contatos</a>
-					</li>
-				</ul>
-			</nav>
+		<Header
+			ref={headerRef}
+			style={{
+				backgroundColor: menuVisible ? `${Color.PRIMARY_BACKGROUND_COLOR}` : `rgba(0, 0, 25, ${backgroundOpacity})`,
+			}}
+		>
+			<div>
+				<div className='logo-wrapper'>
+					<h1>
+						<a href='#'>JP</a>
+					</h1>
+				</div>
+				<nav className='navbar-menu-wrapper'>
+					<ul>
+						{menu.map((i) => {
+							return (
+								<li>
+									<a href={i.href}>{i.item}</a>
+								</li>
+							)
+						})}
+					</ul>
+				</nav>
+				<button ref={btnMenuRef} className='btn-menu-mobile' onClick={toggleMenu}>
+					<img src='icons/menu.svg' alt='Menu icon' />
+				</button>
+			</div>
+			{useIsVisible(btnMenuRef) && menuVisible && (
+				<nav className='navbar-menu-mobile-wrapper'>
+					{menu.map((i) => {
+						return (
+							<li>
+								<a href={i.href} onClick={toggleMenu}>
+									{i.item}
+								</a>
+							</li>
+						)
+					})}
+				</nav>
+			)}
 		</Header>
 	)
 }

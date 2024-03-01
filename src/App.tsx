@@ -7,18 +7,19 @@ import Skill from "./components/Skill"
 import styled from "styled-components"
 import Contact from "./components/Contact"
 
-const App = styled.main`
-`
+const App = styled.main``
 
 export default () => {
 	return (
 		<App>
 			<Header />
-			<Home/>
+			<Home />
 			<About/>
 			<Skill/>
 			<Project/>
 			<Contact/>
+			{/**
+			*/}
 			<Footer />
 		</App>
 	)
