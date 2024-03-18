@@ -20,7 +20,7 @@ const Card = (props: { name: string; repository: string; description: string; pr
 						Repositório
 					</a>
 					{project && (
-						<a className='btn-project' href={"#"} target='_blank'>
+						<a className='btn-project' href={project} target='_blank'>
 							Projeto
 						</a>
 					)}

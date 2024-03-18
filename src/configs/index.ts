@@ -18,7 +18,7 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 			repository: "https://github.com/J-Player/Profanator-API",
 			description:
 				"API reativa desenvolvida em Spring WebFlux com o propósito de fornecer dados relacionados aos itens do Profane (MMO Sandbox brasileiro).",
-				project: 'https://profanator-api.onrender.com/swagger-ui/index.html'
+			project: 'https://profanator-api.onrender.com/swagger-ui/index.html'
 		},
 		{
 			name: "Simple Spring Batch Template",
