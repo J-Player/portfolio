@@ -2,17 +2,15 @@ import styled from "styled-components"
 import Section from "./Section"
 import { Color } from "../styles/variables"
 import { useState } from "react"
-import { Language, projects } from "../configs"
+import ProjectModel, { Language, projects } from "../configs"
 import breakpoints from "../styles/breakpoints"
 
-const Card = (props: { name: string; repository: string; description: string; project?: string | null }) => {
+const Card = (props: ProjectModel) => {
 	const { name, description, repository, project } = props
 	return (
 		<div className='card'>
-			<div className='image-wrapper'>
-				<img src='bg.jpg' alt='' />
-			</div>
-			<div className='info-wrapper'>
+			<img className='card-image' src={`images/${name.toLowerCase()}.png`} alt='' />
+			<div className='card-info'>
 				<h2>{name}</h2>
 				<p>{description}</p>
 				<div className='btn-wrapper'>
@@ -57,23 +55,18 @@ const Project = ({ className }: { className?: string }) => {
 						>
 							{capitalize(l)}
 						</button>
-						// <button style={{ fontWeight: category == l ? "bold" : "normal" }} onClick={() => setCategory(l)}>
-						// 	{capitalize(l)}
-						// </button>
 					)
 				})}
 			</div>
 			<div className='project-wrapper'>
-				{[...Array(4)].map((p, i) => {
-					return i < projects[category].length ? (
+				{projects[category].map((p, i) => {
+					return (
 						<Card
 							name={projects[category][i]["name"]}
 							description={projects[category][i]["description"]}
 							repository={projects[category][i]["repository"]}
 							project={projects[category][i]["project"]}
 						/>
-					) : (
-						<div className='card empty'></div>
 					)
 				})}
 			</div>
@@ -117,69 +110,63 @@ const StyledProject = styled(Project)`
 	.project-wrapper {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+		grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
 		gap: 2rem;
 		width: 100%;
 		.card {
 			display: grid;
 			overflow: hidden;
-			grid-template-rows: auto 1fr;
+			grid-template-rows: auto 0.5fr;
 			border-radius: 1rem;
 			background-color: ${Color.SECONDARY_BACKGROUND_COLOR};
 			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-
 			&.empty {
-				place-items: center;
+				display: none !important;
 				background-color: ${Color.TERNARY_BACKGROUND_COLOR};
-				border: 1px dashed ${Color.SECONDARY_TEXT_COLOR};
-				position: relative;
-				min-height: 400px;
+				border: 1px dashed black;
+				display: grid;
 				opacity: 0.5;
-				&::after {
-					content: "Em desenvolvimento";
+				place-items: center;
+				&::before {
 					position: absolute;
-					color: ${Color.SECONDARY_TEXT_COLOR};
-					font-weight: bold;
+					content: "Em desenvolvimento :)";
 				}
 			}
-
-			.image-wrapper {
-				background-color: ${Color.TERNARY_BACKGROUND_COLOR};
+			.card-image {
 				position: relative;
-				&::after {
-					content: "Imagem em breve!";
+				&::before {
+					content: "Imagem em breve :)";
+					background-color: ${Color.TERNARY_BACKGROUND_COLOR};
 					border: 1px dashed black;
+					opacity: 0.5;
+					border-radius: 1rem 1rem 0 0;
 					position: absolute;
-					border-top-left-radius: 1rem;
-					border-top-right-radius: 1rem;
-					color: ${Color.SECONDARY_TEXT_COLOR};
 					inset: 0;
-					font-size: 1.6rem;
 					display: grid;
+					object-fit: cover;
 					place-items: center;
 				}
-				img {
-					display: block;
-					opacity: 0;
-					width: 100%;
-					max-height: 100%;
-				}
+				height: auto;
+				object-fit: cover;
+				width: 100%;
 			}
-
-			.info-wrapper {
-				display: grid;
-				padding: 1rem;
-				gap: 2rem;
+			.card-info {
+				padding: 1.5rem;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				p {
+					line-height: 3rem;
+					height: 100%;
+				}
 				.btn-wrapper {
+					align-self: end;
+					margin-top: 1rem;
 					display: flex;
-					place-self: end;
 					gap: 1rem;
 					a {
-						display: grid;
-						place-items: center;
-						height: fit-content;
-						width: fit-content;
-						border-radius: 0.5rem;
 						padding: 1rem;
+						border-radius: 0.5rem;
 					}
 					.btn-repository {
 						background-color: ${Color.PRIMARY_BACKGROUND_COLOR};
@@ -187,7 +174,6 @@ const StyledProject = styled(Project)`
 					}
 					.btn-project {
 						background-color: ${Color.HIGHLIGHT_COLOR};
-						color: ${Color.SECONDARY_TEXT_COLOR};
 					}
 				}
 			}
@@ -206,18 +192,6 @@ const StyledProject = styled(Project)`
 		}
 		.project-wrapper {
 			grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-			.card {
-				.info-wrapper {
-					.btn-wrapper {
-						a {
-						}
-						.btn-repository {
-						}
-						.btn-project {
-						}
-					}
-				}
-			}
 		}
 	}
 
