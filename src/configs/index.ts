@@ -17,7 +17,7 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 			name: "Profanator-API",
 			repository: "https://github.com/J-Player/Profanator-API",
 			description:
-				"API reativa desenvolvida em Spring WebFlux com o propósito de fornecer dados relacionados aos itens do Profane (MMO Sandbox brasileiro).",
+				"API REST reativa desenvolvida em Spring WebFlux com o propósito de fornecer dados relacionados aos itens do Profane (MMO Sandbox brasileiro).",
 			project: 'https://profanator-api.onrender.com/swagger-ui/index.html'
 		},
 		{
@@ -28,9 +28,16 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 		{
 			name: "Simple Spring Kafka Template",
 			repository: "https://github.com/J-Player/Simple-Spring-Kafka-Template",
-			description: "Um simples template de uma mensageria usando Spring Kafka.",
+			description: "Um simples template de um serviço de mensageria usando Spring Kafka.",
 		},
 	],
-	javascript: [],
+	javascript: [
+		{
+			name: "Portfolio",
+			repository: "https://github.com/J-Player/Portfolio",
+			description:
+				"O portfolio que você está acessando agora! Foi desenvolvido com Typescript e React.",
+		},
+	],
 	python: [],
 }
