@@ -38,6 +38,12 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 			description:
 				"O portfolio que você está acessando agora! Foi desenvolvido com Typescript e React.",
 		},
+		{
+			name: "React Note App Example",
+			repository: "https://github.com/J-Player/React-Note-App-Example",
+			description:
+				"Um gerenciador de notas do usuário. O projeto foi desenvolvido usando a MERN stack (MongoDB, ExpressJS, React e NodeJS).",
+		},
 	],
 	python: [],
 }
