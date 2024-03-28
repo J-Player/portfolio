@@ -45,5 +45,12 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 				"Um gerenciador de notas do usuário. O projeto foi desenvolvido usando a MERN stack (MongoDB, ExpressJS, React e NodeJS).",
 		},
 	],
-	python: [],
+	python: [
+		{
+			name: "Web Scraping Example",
+			repository: "https://github.com/J-Player/Web-Scraping-Example",
+			description:
+				"Um simples exemplo de Web Scraping com Python e Selenium (framework).",
+		},
+	],
 }
