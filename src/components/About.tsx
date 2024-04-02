@@ -10,7 +10,7 @@ const About = ({ className }: { className?: string }) => {
 			<h1>SOBRE</h1>
 			<div className='about-wrapper'>
 				<p>
-					Oi! Meu nome é João Pedro R. Diniz, tenho 26 anos.
+					Oi! Meu nome é João Pedro R. Diniz, tenho 27 anos.
 					<br />
 					Moro no Rio de Janeiro/RJ.
 					<br />
@@ -77,6 +77,7 @@ const AboutStyled = styled(About)`
 	}
 	.photo-wrapper {
 		background-color: lightgray;
+		place-self: center;
 		border-radius: 1rem;
 		overflow: hidden;
 		width: clamp(260px, 280px, 380px);
