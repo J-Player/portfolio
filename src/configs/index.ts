@@ -47,6 +47,12 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 	],
 	python: [
 		{
+			name: "Kaggle Competitions Collection",
+			repository: "https://github.com/J-Player/Kaggle-Competitions-Collection",
+			description:
+				"Coleção de competições do Kaggle de Data Science com Python. É uma coletânea notebooks desenvolvidos para resolver determinados desafios disponíveis no Kaggle.",
+		},
+		{
 			name: "Web Scraping Example",
 			repository: "https://github.com/J-Player/Web-Scraping-Example",
 			description:
