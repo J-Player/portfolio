@@ -116,7 +116,7 @@ const StyledProject = styled(Project)`
 		.card {
 			display: grid;
 			overflow: hidden;
-			grid-template-rows: auto 0.5fr;
+			grid-template-rows: .5fr auto;
 			border-radius: 1rem;
 			background-color: ${Color.SECONDARY_BACKGROUND_COLOR};
 			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
