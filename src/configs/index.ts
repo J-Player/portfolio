@@ -18,7 +18,7 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 			repository: "https://github.com/J-Player/Profanator-API",
 			description:
 				"API REST reativa desenvolvida em Spring WebFlux com o propósito de fornecer dados relacionados aos itens do Profane (MMO Sandbox brasileiro).",
-			project: 'https://profanator-api.onrender.com/swagger-ui/index.html'
+			// project: 'https://profanator-api.onrender.com/swagger-ui/index.html'
 		},
 		{
 			name: "Simple Spring Batch Template",
@@ -51,7 +51,7 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 			name: "Kaggle Competitions Collection",
 			repository: "https://github.com/J-Player/Kaggle-Competitions-Collection",
 			description:
-				"Coleção de competições do Kaggle de Data Science com Python. É uma coletânea notebooks desenvolvidos para resolver determinados desafios disponíveis no Kaggle.",
+				"Coleção de competições do Kaggle de Data Science com Python. É uma coletânea de notebooks desenvolvidos para resolver determinados desafios disponíveis no Kaggle.",
 		},
 		{
 			name: "Web Scraping Example",
