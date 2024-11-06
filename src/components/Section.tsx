@@ -1,12 +1,14 @@
-import React from "react"
-import styled from "styled-components"
-import { Color } from "../styles/variables"
+import styled from 'styled-components'
+import { BackgroundColor, Color, FontColor } from '../styles/variables'
 
-const Section = styled.section<{ $backgroundColor?: Color; $textColor?: Color }>`
-	background-color: ${(props) => props.$backgroundColor || Color.SECONDARY_BACKGROUND_COLOR};
-	color: ${(props) => props.$textColor || Color.SECONDARY_TEXT_COLOR};
+const Section = styled.section<{
+	$backgroundColor?: BackgroundColor
+	$textColor?: FontColor
+}>`
+	background-color: ${props => props.$backgroundColor || Color.backgroundColor.SECONDARY};
+	color: ${props => props.$textColor || Color.fontColor.SECONDARY};
 	min-height: 100vh;
-    width: 100%;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

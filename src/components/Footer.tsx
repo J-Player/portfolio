@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-const Footer = styled.footer`
+const StyledFooter = styled.footer`
 	background-color: black;
 	color: white;
 	display: flex;
@@ -16,10 +16,12 @@ const Footer = styled.footer`
 	}
 `
 
-export default ({ className }: { className?: string }) => {
+const Footer = ({ className }: { className?: string }) => {
 	return (
-		<Footer className={className}>
+		<StyledFooter className={className}>
 			<small>&copy; Todos os direitos reservados - João Pedro</small>
-		</Footer>
+		</StyledFooter>
 	)
 }
+
+export default Footer

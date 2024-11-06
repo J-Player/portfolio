@@ -1,13 +1,13 @@
-import styled from "styled-components"
-import Section from "./Section"
-import { Color } from "../styles/variables"
-import breakpoints from "../styles/breakpoints"
+import styled from 'styled-components'
+import Section from './Section'
+import { Color } from '../styles/variables'
+import breakpoints from '../styles/breakpoints'
 
 const Skill = ({ className }: { className?: string }) => {
 	return (
-		<Section id='skill' className={className}>
+		<Section id="skill" className={className}>
 			<h1>HABILIDADES</h1>
-			<div className='skill-wrapper'>
+			<div className="skill-wrapper">
 				<ul>
 					<li>
 						<ul>
@@ -54,8 +54,8 @@ const Skill = ({ className }: { className?: string }) => {
 					</li>
 				</ul>
 			</div>
-			<div className='image-wrapper'>
-				<img src='skills.png' alt='' />
+			<div className="image-wrapper">
+				<img src="skills.png" alt="" />
 			</div>
 		</Section>
 	)
@@ -65,10 +65,10 @@ const StyledSkill = styled(Skill)`
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: .1fr 1fr;
+	grid-template-rows: 0.1fr 1fr;
 	column-gap: 2rem;
 
-	background-color: ${Color.TERNARY_BACKGROUND_COLOR};
+	background-color: ${Color.backgroundColor.TERNARY};
 
 	h1 {
 		grid-column: span 2;
@@ -110,7 +110,6 @@ const StyledSkill = styled(Skill)`
 			grid-row-start: 3;
 		}
 	}
-
 `
 
 export default StyledSkill

@@ -1,24 +1,24 @@
-import styled from "styled-components"
-import Section from "./Section"
-import { Color } from "../styles/variables"
-import { useState } from "react"
-import ProjectModel, { Language, projects } from "../configs"
-import breakpoints from "../styles/breakpoints"
+import styled from 'styled-components'
+import Section from './Section'
+import { Color } from '../styles/variables'
+import { useState } from 'react'
+import ProjectModel, { Language, projects } from '../configs'
+import breakpoints from '../styles/breakpoints'
 
 const Card = (props: ProjectModel) => {
 	const { name, description, repository, project } = props
 	return (
-		<div className='card'>
-			<img className='card-image' src={`images/${name.toLowerCase()}.png`} alt='' />
-			<div className='card-info'>
+		<div className="card">
+			<img className="card-image" src={`images/${name.toLowerCase()}.png`} alt="" />
+			<div className="card-info">
 				<h2>{name}</h2>
 				<p>{description}</p>
-				<div className='btn-wrapper'>
-					<a className='btn-repository' href={repository} target='_blank'>
+				<div className="btn-wrapper">
+					<a className="btn-repository" href={repository} target="_blank" rel="noreferrer">
 						Repositório
 					</a>
 					{project && (
-						<a className='btn-project' href={project} target='_blank'>
+						<a className="btn-project" href={project} target="_blank" rel="noreferrer">
 							Projeto
 						</a>
 					)}
@@ -33,39 +33,40 @@ const Project = ({ className }: { className?: string }) => {
 	const [category, setCategory] = useState<Language>(languages[0])
 	const capitalize = (str: string): string => str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase()
 	return (
-		<Section id='project' className={className}>
+		<Section id="project" className={className}>
 			<h1>PROJETOS</h1>
 			<p>Aqui estão alguns projetos desenvolvidos por mim.</p>
 			<p>
-				Para mais projetos, acesse meu{" "}
+				Para mais projetos, acesse meu{' '}
 				<strong>
-					<a href='https://github.com/J-Player' target='_blank'>
+					<a href="https://github.com/J-Player" target="_blank" rel="noreferrer">
 						GitHub
 					</a>
 				</strong>
 				.
 			</p>
-			<div className='language-wrapper'>
-				{languages.map((l) => {
+			<div className="language-wrapper">
+				{languages.map((l, i) => {
 					return (
 						<button
-							className={category == l ? "selected" : ""}
+							key={i}
+							className={category == l ? 'selected' : ''}
 							disabled={category == l}
-							onClick={() => setCategory(l)}
-						>
+							onClick={() => setCategory(l)}>
 							{capitalize(l)}
 						</button>
 					)
 				})}
 			</div>
-			<div className='project-wrapper'>
+			<div className="project-wrapper">
 				{projects[category].map((p, i) => {
 					return (
 						<Card
-							name={projects[category][i]["name"]}
-							description={projects[category][i]["description"]}
-							repository={projects[category][i]["repository"]}
-							project={projects[category][i]["project"]}
+							key={i}
+							name={projects[category][i]['name']}
+							description={projects[category][i]['description']}
+							repository={projects[category][i]['repository']}
+							project={projects[category][i]['project']}
 						/>
 					)
 				})}
@@ -96,11 +97,11 @@ const StyledProject = styled(Project)`
 			border-radius: 0.5rem;
 			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 			&:not(.selected):hover {
-				background-color: ${Color.PRIMARY_BACKGROUND_COLOR};
-				color: ${Color.PRIMARY_TEXT_COLOR};
+				background-color: ${Color.backgroundColor.PRIMARY};
+				color: ${Color.fontColor.PRIMARY};
 			}
 			&.selected {
-				background-color: ${Color.HIGHLIGHT_COLOR};
+				background-color: ${Color.fontColor.HIGHLIGHT};
 				border-color: transparent;
 				font-weight: bold;
 				cursor: not-allowed;
@@ -116,27 +117,27 @@ const StyledProject = styled(Project)`
 		.card {
 			display: grid;
 			overflow: hidden;
-			grid-template-rows: .5fr auto;
+			grid-template-rows: 0.5fr auto;
 			border-radius: 1rem;
-			background-color: ${Color.SECONDARY_BACKGROUND_COLOR};
+			background-color: ${Color.backgroundColor.SECONDARY};
 			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 			&.empty {
 				display: none !important;
-				background-color: ${Color.TERNARY_BACKGROUND_COLOR};
+				background-color: ${Color.backgroundColor.TERNARY};
 				border: 1px dashed black;
 				display: grid;
 				opacity: 0.5;
 				place-items: center;
 				&::before {
 					position: absolute;
-					content: "Em desenvolvimento :)";
+					content: 'Em desenvolvimento :)';
 				}
 			}
 			.card-image {
 				position: relative;
 				&::before {
-					content: "Imagem em breve :)";
-					background-color: ${Color.TERNARY_BACKGROUND_COLOR};
+					content: 'Imagem em breve :)';
+					background-color: ${Color.backgroundColor.TERNARY};
 					border: 1px dashed black;
 					opacity: 0.5;
 					border-radius: 1rem 1rem 0 0;
@@ -169,11 +170,11 @@ const StyledProject = styled(Project)`
 						border-radius: 0.5rem;
 					}
 					.btn-repository {
-						background-color: ${Color.PRIMARY_BACKGROUND_COLOR};
-						color: ${Color.PRIMARY_TEXT_COLOR};
+						background-color: ${Color.backgroundColor.PRIMARY};
+						color: ${Color.fontColor.PRIMARY};
 					}
 					.btn-project {
-						background-color: ${Color.HIGHLIGHT_COLOR};
+						background-color: ${Color.fontColor.HIGHLIGHT};
 					}
 				}
 			}

@@ -1,26 +1,23 @@
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import About from "./components/About"
-import Home from "./components/Home"
-import Project from "./components/Project"
-import Skill from "./components/Skill"
-import styled from "styled-components"
-import Contact from "./components/Contact"
+import About from './components/About'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Home from './components/Home'
+import Project from './components/Project'
+import Skill from './components/Skill'
 
-const App = styled.main``
-
-export default () => {
+const App = () => {
 	return (
-		<App>
+		<main>
 			<Header />
 			<Home />
-			<About/>
-			<Skill/>
-			<Project/>
-			<Contact/>
-			{/**
-			*/}
+			<About />
+			<Skill />
+			<Project />
+			<Contact />
 			<Footer />
-		</App>
+		</main>
 	)
 }
+
+export default App

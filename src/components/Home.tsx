@@ -1,27 +1,26 @@
-import styled from "styled-components"
-import { Color } from "../styles/variables"
-import Section from "./Section"
-import breakpoints from "../styles/breakpoints"
+import styled from 'styled-components'
+import { Color } from '../styles/variables'
+import Section from './Section'
+import breakpoints from '../styles/breakpoints'
 
 const Home = ({ className }: { className?: string }) => {
 	return (
 		<Section
-			id='home'
+			id="home"
 			className={className}
-			$backgroundColor={Color.PRIMARY_BACKGROUND_COLOR}
-			$textColor={Color.PRIMARY_TEXT_COLOR}
-		>
+			$backgroundColor={Color.backgroundColor.PRIMARY}
+			$textColor={Color.fontColor.PRIMARY}>
 			<div>
-				<div className='title-wrapper'>
+				<div className="title-wrapper">
 					<h1>João Pedro R. Diniz</h1>
 					<h2>Desenvolvedor Full-Stack</h2>
 				</div>
-				<div className='social-media-wrapper'>
-					<a href='https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/' target='_blank'>
-						<img src='icons/socials/linkedin.svg' title='LinkedIn' alt='LinkedIn icon' />
+				<div className="social-media-wrapper">
+					<a href="https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/" target="_blank" rel="noreferrer">
+						<img src="icons/socials/linkedin.svg" title="LinkedIn" alt="LinkedIn icon" />
 					</a>
-					<a href='https://github.com/J-Player' target='_blank'>
-						<img src='icons/socials/github.svg' title='GitHub' alt='GitHub icon' />
+					<a href="https://github.com/J-Player" target="_blank" rel="noreferrer">
+						<img src="icons/socials/github.svg" title="GitHub" alt="GitHub icon" />
 					</a>
 				</div>
 			</div>
@@ -33,11 +32,11 @@ const HomeStyled = styled(Home)`
 	position: relative;
 	justify-content: start;
 	&::before {
-		content: "";
+		content: '';
 		position: absolute;
 		inset: 0;
 		opacity: 0.5;
-		background-image: url("bg.jpg");
+		background-image: url('bg.jpg');
 		background-size: cover;
 		filter: saturate(0);
 		mix-blend-mode: color-dodge;
@@ -93,7 +92,6 @@ const HomeStyled = styled(Home)`
 			}
 		}
 	}
-
 `
 
 export default HomeStyled

@@ -8,7 +8,8 @@
     "dev": "vite",
     "host": "vite --host",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --fix src",
+    "format": "prettier --write src",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -20,15 +21,20 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.14.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
     "sass": "^1.69.5",
+    "typescript-eslint": "^8.13.0",
     "vite": "^4.4.5"
   }
 }

@@ -1,18 +1,20 @@
-import styled from "styled-components"
-import { Color } from "../styles/variables"
-import { useEffect, useRef, useState } from "react"
-import breakpoints from "../styles/breakpoints"
-import { useIsVisible } from "../hooks/useIsVisibleHook"
+import styled from 'styled-components'
+import { Color } from '../styles/variables'
+import { useEffect, useRef, useState } from 'react'
+import breakpoints from '../styles/breakpoints'
+import { useIsVisible } from '../hooks/useIsVisibleHook'
 
-const Header = styled.header`
+const StyledHeader = styled.header`
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 10;
 
-	background-color: ${Color.PRIMARY_BACKGROUND_COLOR};
-	color: ${Color.PRIMARY_TEXT_COLOR};
-	transition: top 0.3s, background-color 0.5s;
+	background-color: ${Color.backgroundColor.PRIMARY};
+	color: ${Color.fontColor.PRIMARY};
+	transition:
+		top 0.3s,
+		background-color 0.5s;
 
 	display: grid;
 	grid-template-rows: 10vh 1fr;
@@ -102,7 +104,7 @@ const Header = styled.header`
 	}
 `
 
-export default () => {
+const Header = () => {
 	const [backgroundOpacity, setbackgroundOpacity] = useState(window.scrollY)
 	const [menuVisible, setMenuVisible] = useState(false)
 	const toggleMenu = () => setMenuVisible(!menuVisible)
@@ -110,71 +112,72 @@ export default () => {
 	const headerRef = useRef<HTMLElement>(null)
 	const btnMenuRef = useRef<HTMLButtonElement>(null)
 	const menu = [
-		{ href: "#about", item: "Sobre" },
-		{ href: "#skill", item: "Habilidades" },
-		{ href: "#project", item: "Projetos" },
-		{ href: "#contact", item: "Contatos" },
+		{ href: '#about', item: 'Sobre' },
+		{ href: '#skill', item: 'Habilidades' },
+		{ href: '#project', item: 'Projetos' },
+		{ href: '#contact', item: 'Contatos' }
 	]
 
 	useEffect(() => {
 		const listener = () => {
 			setbackgroundOpacity(parseFloat((window.scrollY / (window.innerHeight * 0.1)).toFixed(1)))
 		}
-		window.addEventListener("scroll", listener)
-		return () => window.removeEventListener("scroll", listener)
+		window.addEventListener('scroll', listener)
+		return () => window.removeEventListener('scroll', listener)
 	}, [])
 
 	useEffect(() => {
 		const currScrollPos = window.scrollY
 		if (prevScrollPos > currScrollPos || currScrollPos == 0) {
-			headerRef.current!.style.top = "0"
+			headerRef.current!.style.top = '0'
 		} else if (!menuVisible) {
-			headerRef.current!.style.top = "-20vh"
+			headerRef.current!.style.top = '-20vh'
 		}
 		setPrevScrollPos(window.scrollY)
 	}, [window.scrollY])
 
 	return (
-		<Header
+		<StyledHeader
 			ref={headerRef}
 			style={{
-				backgroundColor: menuVisible ? `${Color.PRIMARY_BACKGROUND_COLOR}` : `rgba(0, 0, 25, ${backgroundOpacity})`,
-			}}
-		>
+				backgroundColor: menuVisible ? `${Color.backgroundColor.PRIMARY}` : `rgba(0, 0, 25, ${backgroundOpacity})`
+			}}>
 			<div>
-				<div className='logo-wrapper'>
+				<div className="logo-wrapper">
 					<h1>
-						<a href='#'>JP</a>
+						<a href="#">JP</a>
 					</h1>
 				</div>
-				<nav className='navbar-menu-wrapper'>
+				<nav className="navbar-menu-wrapper">
 					<ul>
-						{menu.map((i) => {
+						{menu.map((item, index) => {
 							return (
-								<li>
-									<a href={i.href}>{i.item}</a>
+								<li key={index}>
+									<a href={item.href}>{item.item}</a>
 								</li>
 							)
 						})}
 					</ul>
 				</nav>
-				<button ref={btnMenuRef} className='btn-menu-mobile' onClick={toggleMenu}>
-					<img src='icons/menu.svg' alt='Menu icon' />
+				<button ref={btnMenuRef} className="btn-menu-mobile" onClick={toggleMenu}>
+					<img src="icons/menu.svg" alt="Menu icon" />
 				</button>
 			</div>
 			{useIsVisible(btnMenuRef) && menuVisible && (
-				<nav className='navbar-menu-mobile-wrapper'>
-					{menu.map((i) => {
+				<nav className="navbar-menu-mobile-wrapper">
+					{menu.map((item, index) => {
 						return (
-							<li>
-								<a href={i.href} onClick={toggleMenu}>
-									{i.item}
+							<li key={index}>
+								<a href={item.href} onClick={toggleMenu}>
+									{item.item}
 								</a>
 							</li>
 						)
 					})}
 				</nav>
 			)}
-		</Header>
+		</StyledHeader>
 	)
 }
+
+export default Header
