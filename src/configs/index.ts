@@ -40,6 +40,12 @@ export const projects: { [key in Language]: ProjectModel[] } = {
 			project: 'https://profanator.onrender.com'
 		},
 		{
+			name: 'Devedle',
+			repository: 'https://github.com/J-Player/devedle',
+			description: 'Jogo inspirado no gamedle, porém para a comunidade de desenvolvedores.',
+			project: 'https://devedle.vercel.app'
+		},
+		{
 			name: 'Portfolio',
 			repository: 'https://github.com/J-Player/Portfolio',
 			description: 'O portfolio que você está acessando agora! Foi desenvolvido com Typescript e React.'
