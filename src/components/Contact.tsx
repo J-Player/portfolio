@@ -9,10 +9,10 @@ const Contact = ({ className }: { className?: string }) => {
 		<Section id="contact" className={className}>
 			<h1>CONTATOS</h1>
 			<div>
-				<span>
+				<a href="mailto:jp_rd@hotmail.com">
 					<img src="icons/socials/email.svg" alt="" />
-					<a href="mailto:jp_rd@hotmail.com">jp_rd@hotmail.com</a>
-				</span>
+					jp_rd@hotmail.com
+				</a>
 				<a href="tel:+5521991925834">
 					<img src="icons/socials/whatsapp.svg" alt="" />
 					+55 (21) 99192-5834
