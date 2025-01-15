@@ -137,7 +137,7 @@ Error generating stack: `+l.message+`
 			justify-content: center;
 		}
 	}
-`,Uh=({className:e})=>g.jsxs(Fr,{id:"contact",className:e,children:[g.jsx("h1",{children:"CONTATOS"}),g.jsxs("div",{children:[g.jsxs("span",{children:[g.jsx("img",{src:"icons/socials/email.svg",alt:""}),g.jsx("a",{href:"mailto:jp_rd@hotmail.com",children:"jp_rd@hotmail.com"})]}),g.jsxs("a",{href:"tel:+5521991925834",children:[g.jsx("img",{src:"icons/socials/whatsapp.svg",alt:""}),"+55 (21) 99192-5834"]}),g.jsxs("a",{href:"https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/",target:"_blank",rel:"noreferrer",children:[g.jsx("img",{src:"icons/socials/linkedin_filled.svg",alt:""}),"LinkedIn"]}),g.jsxs("a",{href:"https://github.com/J-Player",target:"_blank",rel:"noreferrer",children:[g.jsx("img",{src:"icons/socials/github.svg",alt:""}),"GitHub"]})]})]}),Hh=ft(Uh)`
+`,Uh=({className:e})=>g.jsxs(Fr,{id:"contact",className:e,children:[g.jsx("h1",{children:"CONTATOS"}),g.jsxs("div",{children:[g.jsxs("a",{href:"mailto:jp_rd@hotmail.com",children:[g.jsx("img",{src:"icons/socials/email.svg",alt:""}),"jp_rd@hotmail.com"]}),g.jsxs("a",{href:"tel:+5521991925834",children:[g.jsx("img",{src:"icons/socials/whatsapp.svg",alt:""}),"+55 (21) 99192-5834"]}),g.jsxs("a",{href:"https://www.linkedin.com/in/joão-pedro-rodrigues-diniz-339a1a180/",target:"_blank",rel:"noreferrer",children:[g.jsx("img",{src:"icons/socials/linkedin_filled.svg",alt:""}),"LinkedIn"]}),g.jsxs("a",{href:"https://github.com/J-Player",target:"_blank",rel:"noreferrer",children:[g.jsx("img",{src:"icons/socials/github.svg",alt:""}),"GitHub"]})]})]}),Hh=ft(Uh)`
 	background-color: ${Y.backgroundColor.PRIMARY};
 	color: ${Y.fontColor.PRIMARY};
 	flex-direction: column;
